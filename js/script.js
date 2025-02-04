@@ -62,4 +62,15 @@ yesButton.addEventListener('click', () => {
   valentineQuestion.textContent = "Me Encantas!! :3"; // Change the question text
   responseButtons.style.display = 'none'; // Hide both buttons
   //confetti(); // Trigger confetti animation
+  // Número de WhatsApp (reemplázalo con el real)
+  let phoneNumber = "528123095728"; // Formato internacional sin + ni espacios (Ejemplo para México: 5211234567890)
+
+  // Mensaje que se enviará por WhatsApp
+  let message = "¡Siii! 😍 Quiero ser tu Valentín 💖✨";
+
+  // Crear enlace de WhatsApp
+  let whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  // Redirigir a WhatsApp
+  window.open(whatsappURL, "_blank");
 });
