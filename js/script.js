@@ -24,6 +24,33 @@ const imagePaths = [
   "./images/image12.gif"
 ];
 
+const preloadedImages = {};
+let imagesLoaded = 0;
+//const loadingImage = "./images/loading.gif"; // Puedes usar un emoji o imagen de carga
+
+// Establecer imagen de carga antes de precargar los GIFs
+imageDisplay.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-size='24'%3E⏳%3C/text%3E%3C/svg%3E";
+
+// Función para precargar imágenes
+function preloadImages() {
+  imagePaths.forEach((path) => {
+    const img = new Image();
+    img.src = path;
+    img.onload = () => {
+      imagesLoaded++;
+      preloadedImages[path] = img;
+
+      // Si todas las imágenes están cargadas, muestra la primera imagen
+      if (imagesLoaded === imagePaths.length) {
+        imageDisplay.src = imagePaths[0];
+      }
+    };
+  });
+}
+
+// Llamar a la función de precarga
+preloadImages();
+
 noButton.addEventListener('click', function() {
   if (noClickCount < 9) {
     noClickCount++;
