@@ -2,6 +2,7 @@
 const yesButton = document.getElementById('yesButton');
 const noButton = document.getElementById('noButton');
 const imageDisplay = document.getElementById('imageDisplay');
+const loadingText = document.getElementById('loadingText'); // Nuevo texto de carga
 const valentineQuestion = document.getElementById('valentineQuestion');
 const responseButtons = document.getElementById('responseButtons');
 
@@ -43,6 +44,7 @@ function preloadImages() {
       // Si todas las imágenes están cargadas, muestra la primera imagen
       if (imagesLoaded === imagePaths.length) {
         imageDisplay.src = imagePaths[0];
+        loadingText.style.display = "none"; // Oculta el texto de carga
       }
     };
   });
