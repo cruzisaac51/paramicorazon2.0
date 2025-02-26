@@ -78,25 +78,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Video Placeholder
     const video = document.querySelector(".videoF1 video");
-    const placeholder = document.querySelector(".video-placeholder");
+    // const placeholder = document.querySelector(".video-placeholder");
 
-    if (video && placeholder) {
-        video.addEventListener("canplay", function () {
-            placeholder.style.display = "none";
-            video.style.display = "block";
-        });
-    }
+    // if (video && placeholder) {
+    //     video.addEventListener("canplay", function () {
+    //         placeholder.style.display = "none";
+    //         video.style.display = "block";
+    //     });
+    // }
 
     // Botones de Invitación
     const invitacion = document.getElementById("invitacion");
     const contenido = document.querySelector(".mainf1");
     const yesButton = document.getElementById("yesButton");
     const noButton = document.getElementById("noButton");
+    console.log("losagarrra", invitacion, contenido, yesButton, noButton);
 
     if (invitacion && contenido && yesButton && noButton) {
         contenido.style.display = "none";
 
         yesButton.addEventListener("click", function () {
+            console.log("click en el botón de sí");
             invitacion.style.display = "none";
 
             const loadingMessage = document.createElement("div");
@@ -123,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         noButton.addEventListener("click", function () {
+            console.log("click en el botón de no");
             alert("Está bien, te esperaré cuando quieras 💔");
             window.location.href = "https://www.google.com/search?q=sad+images";
         });
@@ -130,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ejecutar la API de F1
     fetchNextRace();
+    console.log("fetchNextRace ejecutado");
 });
 
 
