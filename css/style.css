@@ -23,8 +23,8 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .gradient-background {
-    background: rgb(255, 208, 229);
-    background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
+    background: rgb(94, 21, 21);
+    background: linear-gradient(180deg, rgb(157, 24, 24) 0%, rgb(80, 18, 18) 36%, rgb(0, 0, 0) 100%);
 }
 
 .bounce2 {
@@ -47,6 +47,22 @@ animation: bounce2 2s ease infinite;
         max-width: 90%!important;
     }
 }
+.mantenimiento {
+    position: fixed;
+    background: rgb(16 192 41 / 90%);
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: x-large;
+}
+
+.mantenimiento h1 {
+    font-size: xxx-large!important;
+    color: #000000!important;
+}
 .container {
     max-width: 90%;
     margin: 20px auto;
@@ -54,4 +70,129 @@ animation: bounce2 2s ease infinite;
     background: white;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.videoF1{
+    height: 512px;
+    overflow: hidden;
+}
+video {
+    width: 100%;
+}
+#race-info, #countdown {
+    color: white;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+
+#timer {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.contenedor{
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.header{
+    height: 5rem;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+    margin: 10px;
+
+}
+.header__texto{
+    text-align: center;
+    color: var(--blanco);
+}
+.logo{
+    display: flex;
+}
+.barra{
+    position: relative;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.navegacion{
+    display: flex;
+    gap: 2rem;
+}
+.navegacion__enlace{
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    font-family: auto;
+}
+
+.calendariof1{
+    margin: 1rem;
+}
+
+@media (max-width: 768px) {
+    .logo{
+        margin: 10px 50px;
+        position: absolute;
+        z-index: 0;
+        padding-right: 50px;
+    }
+    .barra{
+        flex-direction: row-reverse;
+    }
+    .navegacion {
+        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        padding: 10px;
+    }
+    
+    .navegacion a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    /* Estilos del botón hamburguesa */
+    .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        display: flex !important;
+    }
+    
+    /* Clase para mostrar el menú cuando está activo */
+    .navegacion.activo {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        left: 40%;
+        top: 29px;
+    }
+    
+    .videoF1{
+        position: relative;
+        height: auto;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .calendariof1 {
+        height: 45rem;
+    }
+    
 }
