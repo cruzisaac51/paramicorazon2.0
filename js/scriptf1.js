@@ -61,15 +61,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.getElementById("yesButton").addEventListener("click", function () {
-    document.getElementById("invitacion").style.display = "none"; // Oculta la invitación
-    document.getElementById("contenido").style.display = "block"; // Muestra la página
-});
-
-document.getElementById("noButton").addEventListener("click", function () {
-    alert("Está bien, te esperaré cuando quieras 💔");
-    window.location.href = "https://www.google.com/search?sca_esv=885f4de560f195c7&rlz=1C1CHBD_esMX1099MX1099&sxsrf=AHTn8zq03Zj-Pi8AX_lKnWBsqc6v9upJJQ:1740604284618&q=sad+images&udm=2&fbs=ABzOT_BnMAgCWdhr5zilP5f1cnRvK9uZj3HA_MTJAA6lXR8yQElaIApxtef1-RKg2CcwxXYFPnQ3n4nbwZZO6RCmbc-sT1H_aKpp_RnGJowF9zN6tkTCWdfQPJ60Sf3GPKs8TDK7WpavUdY7QeLc1RZarkpnsxMsOEidpdYA4Y0GwEKdA1xCczwFIH1mPoOW5CW0Z3D8rKZFw4gcbxo7OomUxX-sByITCw&sa=X&sqi=2&ved=2ahUKEwiN59CgoOKLAxWJLtAFHZ1PIeYQtKgLegQIDhAB&biw=1920&bih=911&dpr=1"; // Puedes cambiar la URL o hacer otra acción
-});
 
 // Ejecutar la función al cargar la página
 fetchNextRace();
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const invitacion = document.getElementById("invitacion");
+    const contenido = document.querySelector(".mainf1");
+    const video = document.querySelector(".videoF1 video");
+    const yesButton = document.getElementById("yesButton");
+    const noButton = document.getElementById("noButton");
+
+    // Ocultar el contenido al inicio
+    contenido.style.display = "none";
+
+    yesButton.addEventListener("click", function () {
+        invitacion.style.display = "none"; // Oculta la invitación
+
+        // Mostrar una pantalla de carga mientras se carga el video
+        const loadingMessage = document.createElement("div");
+        loadingMessage.innerHTML = "<h2>llenando de amor la pagina... ⏳</h2>";
+        loadingMessage.style.position = "fixed";
+        loadingMessage.style.top = "50%";
+        loadingMessage.style.left = "50%";
+        loadingMessage.style.transform = "translate(-50%, -50%)";
+        loadingMessage.style.color = "white";
+        loadingMessage.style.fontSize = "24px";
+        document.body.appendChild(loadingMessage);
+
+        // Esperar a que el video esté listo
+        video.addEventListener("canplaythrough", function () {
+            document.body.removeChild(loadingMessage); // Eliminar el mensaje de carga
+            contenido.style.display = "block"; // Mostrar el contenido
+        });
+
+        // Si el video no carga en 5 segundos, mostrar el contenido de todos modos
+        setTimeout(() => {
+            if (contenido.style.display === "none") {
+                document.body.removeChild(loadingMessage);
+                contenido.style.display = "block";
+            }
+        }, 5000);
+    });
+
+    noButton.addEventListener("click", function () {
+        alert("Está bien, te esperaré cuando quieras 💔");
+        window.location.href = "https://www.google.com/search?sca_esv=885f4de560f195c7&rlz=1C1CHBD_esMX1099MX1099&sxsrf=AHTn8zq03Zj-Pi8AX_lKnWBsqc6v9upJJQ:1740604284618&q=sad+images&udm=2&fbs=ABzOT_BnMAgCWdhr5zilP5f1cnRvK9uZj3HA_MTJAA6lXR8yQElaIApxtef1-RKg2CcwxXYFPnQ3n4nbwZZO6RCmbc-sT1H_aKpp_RnGJowF9zN6tkTCWdfQPJ60Sf3GPKs8TDK7WpavUdY7QeLc1RZarkpnsxMsOEidpdYA4Y0GwEKdA1xCczwFIH1mPoOW5CW0Z3D8rKZFw4gcbxo7OomUxX-sByITCw&sa=X&sqi=2&ved=2ahUKEwiN59CgoOKLAxWJLtAFHZ1PIeYQtKgLegQIDhAB&biw=1920&bih=911&dpr=1"; // Puedes cambiar la URL
+    });
+});
