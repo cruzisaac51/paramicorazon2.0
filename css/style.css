@@ -78,7 +78,6 @@ animation: bounce2 2s ease infinite;
 }
 video {
     width: 100%;
-    display: none;
 }
 
 .video-placeholder {
