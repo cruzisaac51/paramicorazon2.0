@@ -42,6 +42,10 @@ function startCountdown(raceDate) {
         document.getElementById("timer").textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
 }
+
+// Ejecutar la API de F1
+fetchNextRace();
+console.log("fetchNextRace ejecutado");
 // function startCountdown(raceDate) {
 //     const raceTime = new Date(raceDate).getTime();
     
@@ -131,9 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Ejecutar la API de F1
-    fetchNextRace();
-    console.log("fetchNextRace ejecutado");
+    
 });
 
 
